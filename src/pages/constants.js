@@ -46,29 +46,23 @@ export const LEFT_OPTIONS = [
     active: true,
     arrowOption: [
       {
-        startX: 500,
+        startX: 585,
         startY: 200,
-        endX: 600,
-        endY: 200,
+        endX: 595,
+        endY: 335,
       },
       {
-        startX: 600,
-        startY: 200,
-        endX: 600,
+        startX: 595,
+        startY: 335,
+        endX: 525,
         endY: 400,
       },
       {
-        startX: 600,
+        startX: 525,
         startY: 400,
         endX: 455,
         endY: 520,
       },
-      // {
-      //   startX: 330,
-      //   startY: 100,
-      //   endX: 600,
-      //   endY: 280,
-      // },
       // {
       //   startX: 600,
       //   startY: 280,
