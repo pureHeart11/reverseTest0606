@@ -1,0 +1,53 @@
+.wrapper {
+  position: relative;
+  .title {
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+      sans-serif;
+    color: #fff;
+    position: absolute;
+    left: 52px;
+    top: 16px;
+  }
+  .left {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 60px;
+    top: 105px;
+    button {
+      margin-bottom: 14px;
+    }
+  }
+  .title {
+    position: absolute;
+    right: 200px;
+    top: 63px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+  }
+  .right {
+    position: absolute;
+    right: 120px;
+    top: 120px;
+    .rightBtn {
+      top: 10px;
+      right: -40px;
+      position: absolute;
+      z-index: 999;
+      button {
+        margin-bottom: 14px;
+        display: block;
+      }
+      .positive {
+        color: #7cb305;
+        border-color: #7cb305;
+      }
+      .negative {
+        color: #ffc53d;
+        border-color: #ffc53d;
+      }
+    }
+  }
+}

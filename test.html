@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入js文件 -->
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+			}
+			.pre_img{
+				position: relative;
+				width: 200px;
+				height: 200px;
+				margin: 100px;
+				border: 1px solid #ccc;
+			}
+			.mask{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color:#FEDE4F;
+				opacity: .6;/* 设置透明度 */
+				cursor: move;
+				display: none;
+			}
+			.big img{
+				width: 500px;
+				height: 500px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.big{
+				overflow: hidden;
+				display: none;
+				position: absolute;
+				left: 200px;
+				top: 0;
+				width: 250px;
+				height: 250px;
+				border: 1px solid #ccc;
+				z-index: 999;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="pre_img">
+			<img src="./src/assets/287.png" >
+			<div class="mask"></div>
+			<div class="big">
+				<img src="./src/assets/287.png" class="bigImg">
+			</div>
+		</div>
+	</body>
+  <script>
+    window.addEventListener('load',function(){//一定要先写这个(先加载完html)
+	let pre_img = document.querySelector('.pre_img');
+	let mask = document.querySelector('.mask');
+	let big = document.querySelector('.big');
+	//1、当鼠标经过pre_img就显示遮罩层mask和big
+	pre_img.addEventListener('mouseover',function(){
+		mask.style.display = 'block';
+		big.style.display = 'block';
+	})
+	pre_img.addEventListener('mouseout',function(){
+		mask.style.display = 'none';
+		big.style.display = 'none';
+	})
+	//2、计算鼠标在盒子内的坐标
+	pre_img.addEventListener('mousemove',function(e){
+		let x = e.pageX - this.offsetLeft;
+		let y = e.pageY - this.offsetTop;
+		//让鼠标处于mask的正中央
+		let maskX = x - mask.offsetWidth/2;
+		let maskY = y - mask.offsetHeight/2;
+		// 让遮罩层只能在盒子内移动
+		let maskMax = pre_img.offsetWidth - mask.offsetWidth;
+		if(maskX <= 0){
+			maskX = 0;
+		}else if (maskX >= maskMax){
+			maskX = maskMax;
+		}
+		if(maskY <= 0){
+			maskY = 0;
+		}else if (maskY >= maskMax){
+			maskY = maskMax;
+		}
+		mask.style.left = maskX + 'px';
+		mask.style.top = maskY + 'px';
+		//根据等比例放大
+		//3、大图片移动距离 = 遮挡层移动距离*大图片最大移动距离 / 遮挡层最大移动距离
+		let bigImg = document.querySelector('.bigImg');
+		//大图移动距离
+		let bigX = maskX * 500 / 200;//大图/小图
+		let bigY= maskY * 500 / 200;
+		//大图的移动(方向相反，取负值)
+		bigImg.style.left = -bigX + 'px';
+		bigImg.style.top = -bigY + 'px';
+	})
+})
+  </script>
+</html>
