@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const Arrow = ({ arrowOption, switchState }) => {
   const timer = useRef();
@@ -12,10 +12,10 @@ const Arrow = ({ arrowOption, switchState }) => {
       offset: 0, // 偏移位（模拟动画效果用, 使用时建议将justifyAlign设为false）
       color: positive ? '#7cb305' : '#ffc53d', // 默认颜色
       activeIndex: -1, // 高亮箭头的索引, 超出回到一圈起始位置。(默认-1，不做高亮处理)
-      activeColor: '#E6E6FA', // 高亮颜色(Highligh Color)
+      activeColor: 'red', // 高亮颜色(Highligh Color)
       stepLength: 10, // 间隔(步长)
       justifyAlign: true, // 两端对齐(两边撑满, 配合activeIndex > 0时使用)
-      arrowLength: 12, // 箭头长度(柄到顶点)
+      arrowLength: 10, // 箭头长度(柄到顶点)
       arrowTheta: 25, // 箭头两边的夹角（度数）
       arrowHeadlen: 6, // 箭头两边斜边长度
       arrowLineWidth: 2, // 画箭头的线宽度

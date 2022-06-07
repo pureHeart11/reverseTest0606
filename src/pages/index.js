@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Button } from 'antd';
-import { useUpdate } from 'ahooks';
+// import { useUpdate } from 'ahooks';
 import { LEFT_OPTIONS } from './constants';
 import Arrow from './Arrow';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
+// import { PhotoProvider, PhotoView } from 'react-photo-view';
+// import 'react-photo-view/dist/react-photo-view.css';
 
 import S from './index.less';
-const elementSize = 400;
 
 const Index = () => {
   const [btn, setBtn] = useState(LEFT_OPTIONS);
