@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+
   .title {
     font-size: 18px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
@@ -9,21 +10,37 @@
     left: 52px;
     top: 16px;
   }
+
   .left {
+    display: flex;
     position: absolute;
-    display: flex;
-    flex-direction: column;
     left: 60px;
-    top: 105px;
-    // overflow-y: scroll;
-    height: 550px;
-    display: flex;
-    flex-wrap: wrap;
-    button {
-      margin-bottom: 14px;
-      margin-right: 16px;
+    top: 120px;
+
+    .btns {
+      display: flex;
+      flex-direction: column;
+
+      height: 550px;
+      display: flex;
+      flex-wrap: wrap;
+
+      button {
+        margin-bottom: 14px;
+        margin-right: 16px;
+      }
     }
+    .leftImgs{
+      position: relative;
+      img {
+        margin-left: 50px;
+        height: 600px;
+        min-width: 300px;
+      }
+    }
+
   }
+
   .title {
     position: absolute;
     right: 200px;
@@ -32,23 +49,28 @@
     color: #fff;
     font-weight: 500;
   }
+
   .right {
     position: absolute;
     right: 120px;
     top: 120px;
+
     .rightBtn {
       top: 10px;
       right: -40px;
       position: absolute;
       z-index: 999;
+
       button {
         margin-bottom: 14px;
         display: block;
       }
+
       .positive {
         color: #7cb305;
         border-color: #7cb305;
       }
+
       .negative {
         color: #ffc53d;
         border-color: #ffc53d;

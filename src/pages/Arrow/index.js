@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const Arrow = ({ arrowOption, switchState }) => {
+const Arrow = ({ arrowOption = [], switchState }) => {
   const timer = useRef();
   const { positive, negative } = switchState;
 
@@ -17,7 +17,7 @@ const Arrow = ({ arrowOption, switchState }) => {
       justifyAlign: true, // 两端对齐(两边撑满, 配合activeIndex > 0时使用)
       arrowLength: 10, // 箭头长度(柄到顶点)
       arrowTheta: 25, // 箭头两边的夹角（度数）
-      arrowHeadlen: 6, // 箭头两边斜边长度
+      arrowHeadlen: 4, // 箭头两边斜边长度
       arrowLineWidth: 2, // 画箭头的线宽度
       lineWidth: 1, // 两点间的连丝宽度（>0时，有效）
     };
@@ -32,7 +32,7 @@ const Arrow = ({ arrowOption, switchState }) => {
     // 计算画多少个箭头(注意：最后一个箭头是不需要间隔(步长)，所以可用长度要加一个opts.stepLength)
     let loops = Math.floor(
       (len - (opts.startOffset + opts.offset + opts.endOffset) + opts.stepLength) /
-        (opts.arrowLength + opts.stepLength),
+      (opts.arrowLength + opts.stepLength),
     );
 
     // 两端对齐(两边撑满)，重算步长
@@ -133,7 +133,7 @@ const Arrow = ({ arrowOption, switchState }) => {
     // 动画效果
     let _index = 1;
     if (!!positive) {
-      timer.current = setInterval(function() {
+      timer.current = setInterval(function () {
         // 高亮效果
         arrowOption.map(({ startX, startY, endX, endY }) =>
           arrowTo(ctx, { x: startX, y: startY }, { x: endX, y: endY }, { activeIndex: _index }),
@@ -147,7 +147,7 @@ const Arrow = ({ arrowOption, switchState }) => {
         }
       }, 150);
     } else if (!!negative) {
-      timer.current = setInterval(function() {
+      timer.current = setInterval(function () {
         // 清空画布
         let BW = myCanvas.width;
         let BH = myCanvas.height;
@@ -166,7 +166,7 @@ const Arrow = ({ arrowOption, switchState }) => {
         }
       }, 150);
     }
-  }, [positive, negative]);
+  }, [positive, negative, arrowOption, arrowTo]);
 
   // open
 

@@ -3,6 +3,7 @@ import { Button } from 'antd';
 // import { useUpdate } from 'ahooks';
 import { LEFT_OPTIONS } from './constants';
 import Arrow from './Arrow';
+import LeftArrow from './LeftArrow';
 // import { PhotoProvider, PhotoView } from 'react-photo-view';
 // import 'react-photo-view/dist/react-photo-view.css';
 
@@ -45,7 +46,7 @@ const Index = () => {
 
   useEffect(() => {
     //给页面绑定滑轮滚动事件
-    let scrollFn = function(e) {
+    let scrollFn = function (e) {
       if (window.scrollTimer) return;
       // 如果有需要阻止默认事件或事件冒泡的可以打开
       // e.preventDefault();
@@ -80,7 +81,7 @@ const Index = () => {
     //设定元素元大小为100；
     let zoom = 100;
     //缩小
-    let zoomInFn = function() {
+    let zoomInFn = function () {
       zoom -= 10;
       if (zoom < 20) {
         zoom = 20;
@@ -88,7 +89,7 @@ const Index = () => {
       setDivScale();
     };
     //放大
-    let zoomOutFn = function() {
+    let zoomOutFn = function () {
       zoom += 10;
       if (zoom > 200) {
         zoom = 200;
@@ -97,7 +98,7 @@ const Index = () => {
     };
     //设置元素放大倍率样式
     const zoomBox = document.getElementById('zoomBox');
-    let setDivScale = function() {
+    let setDivScale = function () {
       let scale = zoom / 50;
       zoomBox.setAttribute('style', 'transform : scale(' + scale + ')');
     };
@@ -114,13 +115,22 @@ const Index = () => {
     <div className={S.wrapper}>
       {/* <div className={S.title}>反风实验计算机模拟软件</div> */}
       <div className={S.left}>
-        {btn.map(({ text, active }, index) => (
-          <Button ghost={!active} type="primary" key={text} onClick={() => handleLeftBtn(index)}>
-            {text}
-          </Button>
-        ))}
+        <div className={S.btns}>
+          {btn.map(({ text, active }, index) => (
+            <Button ghost={!active} type="primary" key={text} onClick={() => handleLeftBtn(index)}>
+              {text}
+            </Button>
+          ))}
+        </div>
+        <div className={S.leftImgs}>
+          <img src={require('../assets/leftBg.png')} alt="" />
+          {
+            isActive &&   <LeftArrow leftOption={isActive.leftOption} switchState={switchState}/>
+          }
+        </div>
+
       </div>
-      <div className={S.title}>{isActive.text}</div>
+      <div className={S.title}>{isActive?.text}</div>
       {isActive && (
         <div className={S.right}>
           <div className={S.rightBtn}>
