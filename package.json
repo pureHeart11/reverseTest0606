@@ -1,20 +1,45 @@
 {
+  "name": "reverse-test",
   "private": true,
+  "version": "0.1.0",
+  "main": "main.js",
   "scripts": {
-    "start": "umi dev",
+    "start": "cross-env UMI_ENV=dev PORT=8081 umi dev",
     "build": "umi build",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{js,jsx} --fix",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:8081 && cross-env NODE_ENV=development electron main.js\"",
+    "electron-win-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:8081 && cross-env NODE_ENV=development electron app/main.js\"",
+    "electron-win-start": "yarn build && cross-env NODE_ENV=production electron app/main.js",
+    "electron-linux-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:8081 && cross-env NODE_ENV=development electron app/main.js --no-sandbox\"",
+    "electron-linux-start": "yarn build && cross-env NODE_ENV=production electron app/main.js --no-sandbox",
+    "dist-mac": "yarn build && electron-builder --mac",
+    "dist-win64": "yarn build && electron-builder --win --x64",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "productName": "reverse-test",
+    "appId": "org.reverse-test.electron-react",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*"
+    ]
   },
   "dependencies": {
-    "ahooks": "^3.4.1",
     "antd": "^4.20.7",
+    "concurrently": "^7.2.1",
+    "cross-env": "^7.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
+    "electron": "^19.0.3",
+    "electron-builder": "^23.0.3",
     "eslint": "^5.4.0",
     "eslint-config-umi": "^1.4.0",
     "eslint-plugin-flowtype": "^2.50.0",
