@@ -1,7 +1,7 @@
 .normal {
   font-family: Georgia, sans-serif;
   text-align: center;
-  background: url(../assets/bg.png) no-repeat;
+  background: url(../public/bg.png) no-repeat;
   height: 100%;
   width: 100%;
   overflow: hidden;

@@ -122,7 +122,6 @@ const Index = () => {
           ))}
         </div>
         <div className={S.leftImgs}>
-          <img src={require('../assets/leftBg.png')} alt="" />
           {isActive && <LeftArrow leftOption={isActive.leftOption} switchState={switchState} />}
         </div>
       </div>
@@ -152,14 +151,14 @@ const Index = () => {
             {isActive && (
               <div id="zoomBox">
                 <img
-                  src={require(`../assets/${isActive.text}.png`)}
+                  src={require(`../../public/img/${isActive.text}.png`)}
                   alt="287"
-                  style={{ height: isActive.height || 550 }}
+                  style={{ height: isActive.height || 550, width: isActive.width }}
                 />
                 <Arrow arrowOption={isActive.arrowOption} switchState={switchState} />
               </div>
               // <PhotoProvider>
-              //   {/* <PhotoView src={require(`../assets/${isActive.text}.png`)}>
+              //   {/* <PhotoView src={require(`../public/${isActive.text}.png`)}>
               //   </PhotoView> */}
               //   <PhotoView
               //     width={elementSize}
@@ -172,7 +171,7 @@ const Index = () => {
               //         <div {...attrs}>
               //           <div style={{ transform: `scale(${childScale})` }}>
               //             <img
-              //               src={require(`../assets/${isActive.text}.png`)}
+              //               src={require(`../public/${isActive.text}.png`)}
               //               alt="287"
               //               style={{ height: 500 }}
               //             />
@@ -184,7 +183,7 @@ const Index = () => {
               //   >
               //     <div>
               //       <img
-              //         src={require(`../assets/${isActive.text}.png`)}
+              //         src={require(`../public/${isActive.text}.png`)}
               //         alt="287"
               //         style={{ zIndex: 999 }}
               //       />

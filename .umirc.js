@@ -2,7 +2,7 @@
 export default {
   treeShaking: true,
   base: './',
-  publicPath: './',
+  publicPath: '/',
   hash: true,
   routes: [
     {

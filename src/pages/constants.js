@@ -1,7 +1,7 @@
 export const LEFT_OPTIONS = [
   {
     text: '287',
-    active: true,
+    active: false,
     arrowOption: [
       // {
       //   startX: 360,
@@ -52,7 +52,7 @@ export const LEFT_OPTIONS = [
         endY: 340,
       },
     ],
-    leftOption:[
+    leftOption: [
       {
         startX: 145,
         startY: 45,
@@ -71,7 +71,7 @@ export const LEFT_OPTIONS = [
         endX: 275,
         endY: 180,
       },
-    ]
+    ],
   },
   {
     text: '300',
@@ -133,7 +133,40 @@ export const LEFT_OPTIONS = [
   },
   {
     text: '330',
-    active: false,
+    active: true,
+    width: 700,
+    arrowOption: [
+      {
+        startX: 44,
+        startY: 100,
+        endX: 44,
+        endY: 205,
+      },
+      {
+        startX: 44,
+        startY: 205,
+        endX: 200,
+        endY: 100,
+      },
+      {
+        startX: 200,
+        startY: 100,
+        endX: 190,
+        endY: 60,
+      },
+      {
+        startX: 190,
+        startY: 60,
+        endX: 35,
+        endY: 5,
+      },
+      // {
+      //   startX: 282,
+      //   startY: 454,
+      //   endX: 230,
+      //   endY: 454,
+      // },
+    ],
   },
   {
     text: '340',
