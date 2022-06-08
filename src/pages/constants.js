@@ -136,15 +136,16 @@ export const LEFT_OPTIONS = [
     active: true,
     width: 700,
     arrowOption: [
+      // 1
       {
-        startX: 44,
-        startY: 100,
-        endX: 44,
-        endY: 205,
+        startX: 46,
+        startY: 240,
+        endX: 60,
+        endY: 200,
       },
       {
-        startX: 44,
-        startY: 205,
+        startX: 60,
+        startY: 200,
         endX: 200,
         endY: 100,
       },
@@ -160,12 +161,73 @@ export const LEFT_OPTIONS = [
         endX: 35,
         endY: 5,
       },
+      // 2
+      {
+        startX: 46,
+        startY: 240,
+        endX: 75,
+        endY: 270,
+      },
+      {
+        startX: 70,
+        startY: 270,
+        endX: 125,
+        endY: 240,
+      },
+      {
+        startX: 120,
+        startY: 240,
+        endX: 120,
+        endY: 160,
+      },
+      {
+        startX: 120,
+        startY: 240,
+        endX: 120,
+        endY: 160,
+      },
+      {
+        startX: 200,
+        startY: 100,
+        endX: 230,
+        endY: 70,
+      },
+      {
+        startX: 230,
+        startY: 80,
+        endX: 300,
+        endY: 115,
+      },
       // {
-      //   startX: 282,
-      //   startY: 454,
-      //   endX: 230,
-      //   endY: 454,
+      //   startX: 75,
+      //   startY: 270,
+      //   endX: 110,
+      //   endY: 250,
       // },
+      // {
+      //   startX: 110,
+      //   startY: 250,
+      //   endX: 280,
+      //   endY: 140,
+      // },
+      // {
+      //   startX: 280,
+      //   startY: 140,
+      //   endX: 300,
+      //   endY: 100
+      // },
+      {
+        startX: 300,
+        startY: 115,
+        endX: 450,
+        endY: 180
+      },
+      {
+        startX: 450,
+        startY: 180,
+        endX: 480,
+        endY: 540
+      },
     ],
   },
   {
@@ -199,47 +261,85 @@ export const LEFT_OPTIONS = [
     ],
   },
   {
-    text: '287',
+    text: '350',
+    active: false,
+    arrowOption: [
+      {
+        startX: 290,
+        startY: 160,
+        endX: 280,
+        endY: 220,
+      },
+      {
+        startX: 280,
+        startY: 210,
+        endX: 320,
+        endY: 210,
+      },
+      {
+        startX: 310,
+        startY: 210,
+        endX: 305,
+        endY: 440,
+      },
+      {
+        startX: 305,
+        startY: 440,
+        endX: 260,
+        endY: 450,
+      },
+    ],
+  },
+  {
+    text: '360',
+    active: false,
+    arrowOption: [
+      {
+        startX: 245,
+        startY: 130,
+        endX: 235,
+        endY: 200,
+      },
+      {
+        startX: 225,
+        startY: 200,
+        endX: 260,
+        endY: 220,
+      },
+      {
+        startX: 255,
+        startY: 220,
+        endX: 250,
+        endY: 330,
+      },
+      {
+        startX: 240,
+        startY: 330,
+        endX: 280,
+        endY: 340,
+      },
+      {
+        startX: 280,
+        startY: 340,
+        endX: 290,
+        endY: 240,
+      },
+    ],
+  },
+  {
+    text: '370',
     active: false,
   },
   {
-    text: '287',
+    text: '380',
     active: false,
   },
   {
-    text: '287',
+    text: '390',
     active: false,
   },
   {
-    text: '287',
-    active: false,
-  },
-  {
-    text: '287',
-    active: false,
-  },
-  {
-    text: '287',
-    active: false,
-  },
-  {
-    text: '287',
-    active: false,
-  },
-  {
-    text: '287',
-    active: false,
-  },
-  {
-    text: '287',
-    active: false,
-  },
-  {
-    text: '287',
-    active: false,
-  },
-  {
-    text: '287',
+    text: '400',
     active: false,
   },
 ];

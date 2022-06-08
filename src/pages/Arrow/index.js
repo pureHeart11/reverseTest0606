@@ -130,6 +130,21 @@ const Arrow = ({ arrowOption = [], switchState }) => {
     let BH = myCanvas.height;
     ctx.clearRect(0, 0, BW, BH); // 清空画布
 
+    // let action = document.getElementById('action');
+    // action.style.cssText = 'position:absolute;left:0;top:0;'; // 画布样式
+    // let ctxAction = myCanvas.getContext('2d');
+
+    // ctxAction.beginPath(); //新建一条path
+    // ctxAction.moveTo(50, 50); //把画笔移动到指定的坐标
+    // ctxAction.lineTo(200, 50);  //绘制一条从当前位置到指定坐标(200, 50)的直线.
+    // //闭合路径。会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
+    // ctxAction.closePath();
+    // ctxAction.stroke(); //绘制路径。
+
+    // action.onClick = ()=>{
+    //   console.log(111);
+    // }
+
     // 动画效果
     let _index = 1;
     if (!!positive) {
@@ -170,7 +185,10 @@ const Arrow = ({ arrowOption = [], switchState }) => {
 
   // open
 
-  return <canvas id="myCanvas" width="640" height="600"></canvas>;
+  return <>
+  {/* <canvas id="action" width="640" height="600"></canvas>; */}
+  <canvas id="myCanvas" width="640" height="600"></canvas>;
+  </>
 };
 
 export default Arrow;

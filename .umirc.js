@@ -1,13 +1,13 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
+  history: 'hash',
   base: './',
-  publicPath: '/',
+  publicPath: './',
   hash: true,
   routes: [
     {
       path: '/',
-      // component: '../layouts/index',
       routes: [{ path: '/', component: '../pages/index' }],
     },
   ],
