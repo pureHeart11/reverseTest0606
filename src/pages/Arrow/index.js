@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const Arrow = ({ arrowOption = [], switchState }) => {
+const Arrow = ({ id = 'myCanvas', arrowOption = [], switchState }) => {
   const timer = useRef();
   const { positive, negative } = switchState;
 
@@ -32,7 +32,7 @@ const Arrow = ({ arrowOption = [], switchState }) => {
     // 计算画多少个箭头(注意：最后一个箭头是不需要间隔(步长)，所以可用长度要加一个opts.stepLength)
     let loops = Math.floor(
       (len - (opts.startOffset + opts.offset + opts.endOffset) + opts.stepLength) /
-      (opts.arrowLength + opts.stepLength),
+        (opts.arrowLength + opts.stepLength),
     );
 
     // 两端对齐(两边撑满)，重算步长
@@ -121,7 +121,7 @@ const Arrow = ({ arrowOption = [], switchState }) => {
 
   useEffect(() => {
     clearTimeout(timer.current);
-    let myCanvas = document.getElementById('myCanvas');
+    let myCanvas = document.getElementById(id);
     myCanvas.style.cssText = 'position:absolute;left:0;top:0;'; // 画布样式
 
     // 画笔（绘图对象）
@@ -148,7 +148,7 @@ const Arrow = ({ arrowOption = [], switchState }) => {
     // 动画效果
     let _index = 1;
     if (!!positive) {
-      timer.current = setInterval(function () {
+      timer.current = setInterval(function() {
         // 高亮效果
         arrowOption.map(({ startX, startY, endX, endY }) =>
           arrowTo(ctx, { x: startX, y: startY }, { x: endX, y: endY }, { activeIndex: _index }),
@@ -162,7 +162,7 @@ const Arrow = ({ arrowOption = [], switchState }) => {
         }
       }, 150);
     } else if (!!negative) {
-      timer.current = setInterval(function () {
+      timer.current = setInterval(function() {
         // 清空画布
         let BW = myCanvas.width;
         let BH = myCanvas.height;
@@ -185,10 +185,12 @@ const Arrow = ({ arrowOption = [], switchState }) => {
 
   // open
 
-  return <>
-  {/* <canvas id="action" width="640" height="600"></canvas>; */}
-  <canvas id="myCanvas" width="640" height="600"></canvas>;
-  </>
+  return (
+    <>
+      {/* <canvas id="action" width="640" height="600"></canvas>; */}
+      <canvas id={id} width="640" height="600"></canvas>;
+    </>
+  );
 };
 
 export default Arrow;

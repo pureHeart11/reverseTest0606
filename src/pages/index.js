@@ -3,10 +3,11 @@ import { Button } from 'antd';
 import { LEFT_OPTIONS } from './constants';
 import Arrow from './Arrow';
 import LeftArrow from './LeftArrow';
-// import { PhotoProvider, PhotoView } from 'react-photo-view';
-// import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 import S from './index.less';
+const elementSize = 400;
 
 const Index = () => {
   const [btn, setBtn] = useState(LEFT_OPTIONS);
@@ -43,75 +44,74 @@ const Index = () => {
     setSwitchState(pre => ({ positive: false, negative: false, [type]: true }));
   };
 
-  useEffect(() => {
-    if(isActive){
-      let scrollFn = function(e) {
-        if (window.scrollTimer) return;
-        // 如果有需要阻止默认事件或事件冒泡的可以打开
-        // e.preventDefault();
-        // e.stopPropagation();
-        window.scrollTimer = setTimeout(() => {
-          e = e || window.event;
-          let isGoDown = true;
-          if (e.wheelDelta) {
-            //第一步：先判断浏览器IE，谷歌滑轮事件
-            if (e.wheelDelta > 0) {
-              //当滑轮向上滚动时
-              isGoDown = false;
-            }
-          } else if (e.detail) {
-            //Firefox滑轮事件
-            if (e.detail < 0) {
-              //当滑轮向下滚动时
-              isGoDown = false;
-            }
-          }
-          if (isGoDown) {
-            //向下滚动，执行放大元素
-            zoomInFn();
-          } else {
-            //向上滚动，执行缩小元素
-            zoomOutFn();
-          }
-          clearTimeout(window.scrollTimer);
-          window.scrollTimer = null;
-        }, 100);
-      };
-      //设定元素元大小为100；
-      let zoom = 100;
-      //缩小
-      let zoomInFn = function() {
-        zoom -= 10;
-        if (zoom < 20) {
-          zoom = 20;
-        }
-        setDivScale();
-      };
-      //放大
-      let zoomOutFn = function() {
-        zoom += 10;
-        if (zoom > 200) {
-          zoom = 200;
-        }
-        setDivScale();
-      };
-      //设置元素放大倍率样式
-      const zoomBox = document.getElementById('zoomBox');
-      let setDivScale = function() {
-        let scale = zoom / 50;
-        zoomBox.setAttribute('style', 'transform : scale(' + scale + ')');
-      };
+  // useEffect(() => {
+  //   if (isActive) {
+  //     let scrollFn = function(e) {
+  //       if (window.scrollTimer) return;
+  //       // 如果有需要阻止默认事件或事件冒泡的可以打开
+  //       // e.preventDefault();
+  //       // e.stopPropagation();
+  //       window.scrollTimer = setTimeout(() => {
+  //         e = e || window.event;
+  //         let isGoDown = true;
+  //         if (e.wheelDelta) {
+  //           //第一步：先判断浏览器IE，谷歌滑轮事件
+  //           if (e.wheelDelta > 0) {
+  //             //当滑轮向上滚动时
+  //             isGoDown = false;
+  //           }
+  //         } else if (e.detail) {
+  //           //Firefox滑轮事件
+  //           if (e.detail < 0) {
+  //             //当滑轮向下滚动时
+  //             isGoDown = false;
+  //           }
+  //         }
+  //         if (isGoDown) {
+  //           //向下滚动，执行放大元素
+  //           zoomInFn();
+  //         } else {
+  //           //向上滚动，执行缩小元素
+  //           zoomOutFn();
+  //         }
+  //         clearTimeout(window.scrollTimer);
+  //         window.scrollTimer = null;
+  //       }, 100);
+  //     };
+  //     //设定元素元大小为100；
+  //     let zoom = 100;
+  //     //缩小
+  //     let zoomInFn = function() {
+  //       zoom -= 10;
+  //       if (zoom < 20) {
+  //         zoom = 20;
+  //       }
+  //       setDivScale();
+  //     };
+  //     //放大
+  //     let zoomOutFn = function() {
+  //       zoom += 10;
+  //       if (zoom > 200) {
+  //         zoom = 200;
+  //       }
+  //       setDivScale();
+  //     };
+  //     //设置元素放大倍率样式
+  //     const zoomBox = document.getElementById('zoomBox');
+  //     let setDivScale = function() {
+  //       let scale = zoom / 50;
+  //       zoomBox.setAttribute('style', 'transform : scale(' + scale + ')');
+  //     };
 
-      //给页面绑定鼠标滚动事件
-      if (document.addEventListener) {
-        //firefox
-        zoomBox.addEventListener('DOMMouseScroll', scrollFn, false);
-      }
-      zoomBox.addEventListener('mousewheel', scrollFn, false);
-    }
-    //给页面绑定滑轮滚动事件
-
-  }, [isActive]);
+  //     //给页面绑定鼠标滚动事件
+  //     if (document.addEventListener) {
+  //       //firefox
+  //       zoomBox.addEventListener('DOMMouseScroll', scrollFn, false);
+  //     }
+  //     zoomBox.addEventListener('mousewheel', scrollFn, false);
+  //   }
+  //   //给页面绑定滑轮滚动事件
+  // }, [isActive]);
 
   return (
     <div className={S.wrapper}>
@@ -125,7 +125,7 @@ const Index = () => {
           ))}
         </div>
         <div className={S.leftImgs}>
-          <img src={'images/leftBg.png'} alt="" className={S.leftImgs}/>
+          <img src={'images/leftBg.png'} alt="" className={S.leftImgs} />
           {isActive && <LeftArrow leftOption={isActive.leftOption} switchState={switchState} />}
         </div>
       </div>
@@ -153,48 +153,58 @@ const Index = () => {
           </div>
           <div>
             {isActive && (
-              <div id="zoomBox">
-                <img
-                  src={`images/${isActive.text}.png`}
-                  alt="287"
-                  style={{ height: isActive.height || 550, width: isActive.width }}
-                />
-                <Arrow arrowOption={isActive.arrowOption} switchState={switchState} />
-              </div>
-              // <PhotoProvider>
-              //   {/* <PhotoView src={require(`../public/${isActive.text}.png`)}>
-              //   </PhotoView> */}
-              //   <PhotoView
-              //     width={elementSize}
-              //     height={elementSize}
-              //     render={({ scale, attrs }) => {
-              //       const width = attrs.style.width;
-              //       const offset = (width - elementSize) / elementSize;
-              //       const childScale = scale === 1 ? scale + offset : 1 + offset;
-              //       return (
-              //         <div {...attrs}>
-              //           <div style={{ transform: `scale(${childScale})` }}>
-              //             <img
-              //               src={require(`../public/${isActive.text}.png`)}
-              //               alt="287"
-              //               style={{ height: 500 }}
-              //             />
-              //             <Arrow arrowOption={isActive.arrowOption} switchState={switchState} />
-              //           </div>
-              //         </div>
-              //       );
-              //     }}
-              //   >
-              //     <div>
-              //       <img
-              //         src={require(`../public/${isActive.text}.png`)}
-              //         alt="287"
-              //         style={{ zIndex: 999 }}
-              //       />
-              //       <Arrow arrowOption={isActive.arrowOption} switchState={switchState} />
-              //     </div>
-              //   </PhotoView>
-              // </PhotoProvider>
+              // <div id="zoomBox">
+              //   <img
+              //     src={`images/${isActive.text}.png`}
+              //     alt="287"
+              //     style={{ height: isActive.height || 550, width: isActive.width }}
+              //   />
+              //   <Arrow arrowOption={isActive.arrowOption} switchState={switchState} />
+              // </div>
+              <PhotoProvider>
+                <PhotoView
+                  width={elementSize}
+                  render={({ scale, attrs }) => {
+                    console.log('attrs: ', attrs);
+                    const width = attrs.style.width;
+                    const offset = (width - elementSize) / elementSize;
+                    const childScale = scale === 1 ? scale + offset : 1 + offset;
+                    console.log('childScale: ', childScale);
+                    return (
+                      <div {...attrs}>
+                        <div style={{ transform: `scale(${childScale})` }}>
+                          {/* <img
+                            src={`images/${isActive.text}.png`}
+                            alt="287"
+                            style={{ height: isActive.height || 550, width: isActive.width }}
+                          />
+                          <Arrow
+                            arrowOption={isActive.arrowOption}
+                            switchState={switchState}
+                            id="inCanvas"
+                          /> */}
+                          <div>Hello world</div>
+                          <Button>button</Button>
+                          <input onMouseDown={e => e.stopPropagation()} />
+                        </div>
+                      </div>
+                    );
+                  }}
+                >
+                  <div style={{ position: 'relative' }}>
+                    <img
+                      src={`images/${isActive.text}.png`}
+                      alt="287"
+                      style={{ height: isActive.height || 550, width: isActive.width }}
+                    />
+                    <Arrow
+                      arrowOption={isActive.arrowOption}
+                      switchState={switchState}
+                      id="outCanvas"
+                    />
+                  </div>
+                </PhotoView>
+              </PhotoProvider>
             )}
           </div>
         </div>
