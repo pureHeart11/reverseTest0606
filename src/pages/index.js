@@ -7,7 +7,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
 import S from './index.less';
-const elementSize = 400;
+const elementSize = 600;
 
 const Index = () => {
   const [btn, setBtn] = useState(LEFT_OPTIONS);
@@ -164,16 +164,15 @@ const Index = () => {
               <PhotoProvider>
                 <PhotoView
                   width={elementSize}
+                  height={elementSize}
                   render={({ scale, attrs }) => {
-                    console.log('attrs: ', attrs);
                     const width = attrs.style.width;
                     const offset = (width - elementSize) / elementSize;
                     const childScale = scale === 1 ? scale + offset : 1 + offset;
-                    console.log('childScale: ', childScale);
                     return (
                       <div {...attrs}>
-                        <div style={{ transform: `scale(${childScale})` }}>
-                          {/* <img
+                      <div style={{ transform: `scale(${childScale})`, width: elementSize, transformOrigin: '0 0' }}>
+                          <img
                             src={`images/${isActive.text}.png`}
                             alt="287"
                             style={{ height: isActive.height || 550, width: isActive.width }}
@@ -182,10 +181,10 @@ const Index = () => {
                             arrowOption={isActive.arrowOption}
                             switchState={switchState}
                             id="inCanvas"
-                          /> */}
-                          <div>Hello world</div>
+                          />
+                          {/* <div>Hello world</div>
                           <Button>button</Button>
-                          <input onMouseDown={e => e.stopPropagation()} />
+                          <input onMouseDown={e => e.stopPropagation()} /> */}
                         </div>
                       </div>
                     );
