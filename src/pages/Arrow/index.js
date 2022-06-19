@@ -122,7 +122,7 @@ const Arrow = ({ id = 'myCanvas', arrowOption = [], switchState }) => {
   useEffect(() => {
     clearTimeout(timer.current);
     let myCanvas = document.getElementById(id);
-    myCanvas.style.cssText = 'position:absolute;left:0;top:0;'; // 画布样式
+    myCanvas.style.cssText = 'position:absolute;left:0;top:0'; // 画布样式
 
     // 画笔（绘图对象）
     let ctx = myCanvas.getContext('2d');
@@ -188,7 +188,7 @@ const Arrow = ({ id = 'myCanvas', arrowOption = [], switchState }) => {
   return (
     <>
       {/* <canvas id="action" width="640" height="600"></canvas>; */}
-      <canvas id={id} width="640" height="600"></canvas>;
+      <canvas id={id} width="800" height="600"></canvas>
     </>
   );
 };

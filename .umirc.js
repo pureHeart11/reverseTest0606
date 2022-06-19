@@ -8,11 +8,13 @@ export default {
   routes: [
     {
       path: '/',
-      routes: [{ path: '/', component: '../pages/index' }],
-    },
-    {
-      path: '/detail',
-      routes: [{ path: '/detail', component: '../pages/Detail' }],
+      routes: [
+        { path: '/', component: '../pages/index' },
+        {
+          path: '/detail',
+          routes: [{ path: '/detail', component: '../pages/Detail/index' }],
+        },
+      ],
     },
   ],
   plugins: [
