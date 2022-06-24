@@ -17,7 +17,7 @@ const Index = () => {
           <div className={S.box}>
             {item ? (
               <img
-                src={`images/${item}.png`}
+                src={`images/directory/${item}.png`}
                 alt={item}
                 onClick={() => {
                   router.push(`/detail?type=${item}`);
