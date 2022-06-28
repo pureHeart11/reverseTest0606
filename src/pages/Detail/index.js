@@ -78,6 +78,8 @@ const Detail = props => {
     if (iconType === 'icon_330_2') {
       if (switchArr[iconType]) {
         if (switchState.positive) {
+          newData[0].arrowOption[0] = initCoord;
+          newData[0].arrowOption[1] = initCoord;
           newData[0].arrowOption[originalOption.length - 1] = initCoord;
           newData[0].arrowOption[originalOption.length - 2] = initCoord;
           newData[0].arrowOption[originalOption.length - 3] = initCoord;

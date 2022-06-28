@@ -7,17 +7,17 @@ const Arrow = ({ id = 'myCanvas', arrowOption = [], switchState }) => {
   const arrowTo = (ctx, p1, p2, arrowOptions) => {
     // 初始化参数
     let opts = {
-      startOffset: 5, // 起点的留空长度
-      endOffset: 5, // 终点的留空长度
+      startOffset: 2, // 起点的留空长度
+      endOffset: 2, // 终点的留空长度
       offset: 0, // 偏移位（模拟动画效果用, 使用时建议将justifyAlign设为false）
       color: positive ? '#7cb305' : '#ffc53d', // 默认颜色
       activeIndex: -1, // 高亮箭头的索引, 超出回到一圈起始位置。(默认-1，不做高亮处理)
       activeColor: 'red', // 高亮颜色(Highligh Color)
-      stepLength: 10, // 间隔(步长)
+      stepLength: 8, // 间隔(步长)
       justifyAlign: true, // 两端对齐(两边撑满, 配合activeIndex > 0时使用)
-      arrowLength: 10, // 箭头长度(柄到顶点)
-      arrowTheta: 25, // 箭头两边的夹角（度数）
-      arrowHeadlen: 4, // 箭头两边斜边长度
+      arrowLength: 5, // 箭头长度(柄到顶点)
+      arrowTheta: 20, // 箭头两边的夹角（度数）
+      arrowHeadlen: 2, // 箭头两边斜边长度
       arrowLineWidth: 2, // 画箭头的线宽度
       lineWidth: 1, // 两点间的连丝宽度（>0时，有效）
     };
@@ -181,7 +181,7 @@ const Arrow = ({ id = 'myCanvas', arrowOption = [], switchState }) => {
         }
       }, 150);
     }
-  }, [positive, negative, arrowOption, arrowTo]);
+  }, [positive, negative, arrowOption, arrowTo, id]);
 
   // open
 
