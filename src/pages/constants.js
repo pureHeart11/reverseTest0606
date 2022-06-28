@@ -59,6 +59,24 @@ export const LEFT_OPTIONS = [
         endY: 110,
       },
       {
+        startX: 720, //13
+        startY: 390,
+        endX: 730,
+        endY: 640,
+      },
+      {
+        startX: 710, //14
+        startY: 340,
+        endX: 700,
+        endY: 380,
+      },
+      {
+        startX: 700, //15
+        startY: 360,
+        endX: 720,
+        endY: 395,
+      },
+      {
         startX: 520, //10
         startY: 110,
         endX: 670,
@@ -75,12 +93,6 @@ export const LEFT_OPTIONS = [
         startY: 220,
         endX: 720,
         endY: 390,
-      },
-      {
-        startX: 720, //13
-        startY: 390,
-        endX: 730,
-        endY: 640,
       },
     ],
   },
@@ -353,39 +365,33 @@ export const LEFT_OPTIONS = [
     active: false,
     arrowOption: [
       {
-        startX: 330,
+        startX: 337,
         startY: 100,
-        endX: 330,
-        endY: 280,
+        endX: 337,
+        endY: 270,
       },
       {
-        startX: 330,
-        startY: 280,
-        endX: 740,
-        endY: 280,
-      },
-      // {
-      //   startX: 340,
-      //   startY: 200,
-      //   endX: 340,
-      //   endY: 430,
-      // },
-      {
-        startX: 370,
-        startY: 280,
-        endX: 420,
-        endY: 350,
+        startX: 337,
+        startY: 272,
+        endX: 730,
+        endY: 272,
       },
       {
-        startX: 420,
-        startY: 350,
-        endX: 740,
-        endY: 350,
+        startX: 380,
+        startY: 270,
+        endX: 425,
+        endY: 340,
       },
       {
-        startX: 340,
-        startY: 280,
-        endX: 340,
+        startX: 410,
+        startY: 352,
+        endX: 730,
+        endY: 352,
+      },
+      {
+        startX: 345,
+        startY: 272,
+        endX: 345,
         endY: 420,
       },
       {
@@ -396,7 +402,7 @@ export const LEFT_OPTIONS = [
       },
       {
         startX: 340,
-        startY: 350,
+        startY: 355,
         endX: 370,
         endY: 320,
       },
@@ -427,7 +433,7 @@ export const LEFT_OPTIONS = [
       {
         startX: 400,
         startY: 430,
-        endX: 740,
+        endX: 730,
         endY: 430,
       },
       {
@@ -437,22 +443,22 @@ export const LEFT_OPTIONS = [
         endY: 430,
       },
       {
-        startX: 340,
+        startX: 345,
         startY: 430,
         endX: 390,
-        endY: 500,
+        endY: 495,
       },
       {
-        startX: 390,
-        startY: 500,
+        startX: 395,
+        startY: 495,
         endX: 360,
-        endY: 530,
+        endY: 515,
       },
       {
         startX: 360,
-        startY: 530,
-        endX: 740,
-        endY: 530,
+        startY: 515,
+        endX: 730,
+        endY: 515,
       },
       {
         startX: 350,
@@ -467,21 +473,21 @@ export const LEFT_OPTIONS = [
         endY: 460,
       },
       {
-        startX: 440,
-        startY: 460,
+        startX: 430,
+        startY: 450,
         endX: 480,
         endY: 450,
       },
       {
         startX: 480,
         startY: 450,
-        endX: 500,
-        endY: 530,
+        endX: 510,
+        endY: 510,
       },
       {
-        startX: 740,
-        startY: 530,
-        endX: 740,
+        startX: 730,
+        startY: 520,
+        endX: 730,
         endY: 130,
       },
     ],

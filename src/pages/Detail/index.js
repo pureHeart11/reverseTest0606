@@ -44,7 +44,7 @@ const Detail = props => {
     },
   } = props;
   const [switchState, setSwitchState] = useState({
-    positive: false,
+    positive: true,
     negative: false,
   });
   const [options, setOptions] = useState(LEFT_OPTIONS);
@@ -454,10 +454,26 @@ const Detail = props => {
         </div>
 
         <div className={S.btn}>
-          <Button onClick={() => handleSwitch('positive')} size="large">
+          <Button
+            onClick={() => {
+              if (type === 'well') {
+                return handleSwitch('negative');
+              }
+              handleSwitch('positive');
+            }}
+            size="large"
+          >
             正常通风
           </Button>
-          <Button onClick={() => handleSwitch('negative')} size="large">
+          <Button
+            onClick={() => {
+               if (type === 'well') {
+                return handleSwitch('positive');
+              }
+              handleSwitch('negative');
+            }}
+            size="large"
+          >
             反向通风
           </Button>
         </div>
